@@ -1,0 +1,14 @@
+<!-- cell_item.xml -->
+<EditText
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cell_letter"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="4dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:inputType="text"
+        android:maxLength="1"
+/>
