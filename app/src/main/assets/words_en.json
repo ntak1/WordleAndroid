@@ -1,0 +1,250 @@
+[
+  {
+    "word": "apple",
+    "labels": ["fruit", "food", "object"]
+  },
+  {
+    "word": "beach",
+    "labels": ["place", "natural feature"]
+  },
+  {
+    "word": "bread",
+    "labels": ["food", "object"]
+  },
+  {
+    "word": "chair",
+    "labels": ["object", "furniture"]
+  },
+  {
+    "word": "chess",
+    "labels": ["game", "activity"]
+  },
+  {
+    "word": "cliff",
+    "labels": ["place", "natural feature"]
+  },
+  {
+    "word": "dance",
+    "labels": ["activity", "art"]
+  },
+  {
+    "word": "eagle",
+    "labels": ["animal", "bird"]
+  },
+  {
+    "word": "field",
+    "labels": ["place", "natural feature"]
+  },
+  {
+    "word": "flame",
+    "labels": ["natural phenomenon", "element"]
+  },
+  {
+    "word": "grape",
+    "labels": ["fruit", "food"]
+  },
+  {
+    "word": "heart",
+    "labels": ["body part", "concept"]
+  },
+  {
+    "word": "house",
+    "labels": ["place", "building", "object"]
+  },
+  {
+    "word": "lemon",
+    "labels": ["fruit", "food"]
+  },
+  {
+    "word": "maple",
+    "labels": ["plant", "tree"]
+  },
+  {
+    "word": "mouse",
+    "labels": ["animal", "object", "technology"]
+  },
+  {
+    "word": "ocean",
+    "labels": ["place", "natural feature"]
+  },
+  {
+    "word": "piano",
+    "labels": ["object", "instrument", "music"]
+  },
+  {
+    "word": "plant",
+    "labels": ["organism", "natural feature"]
+  },
+  {
+    "word": "plane",
+    "labels": ["vehicle", "object", "transportation"]
+  },
+  {
+    "word": "queen",
+    "labels": ["person", "royalty"]
+  },
+  {
+    "word": "river",
+    "labels": ["place", "natural feature"]
+  },
+  {
+    "word": "sheep",
+    "labels": ["animal", "farm"]
+  },
+  {
+    "word": "shore",
+    "labels": ["place", "natural feature"]
+  },
+  {
+    "word": "table",
+    "labels": ["object", "furniture"]
+  },
+  {
+    "word": "tiger",
+    "labels": ["animal", "wild"]
+  },
+  {
+    "word": "toast",
+    "labels": ["food", "object"]
+  },
+  {
+    "word": "train",
+    "labels": ["vehicle", "object", "transportation"]
+  },
+  {
+    "word": "wheat",
+    "labels": ["plant", "crop", "food"]
+  },
+  {
+    "word": "angel",
+    "labels": ["concept", "supernatural", "person"]
+  },
+  {
+    "word": "arrow",
+    "labels": ["object", "weapon", "tool"]
+  },
+  {
+    "word": "badge",
+    "labels": ["object", "symbol"]
+  },
+  {
+    "word": "basil",
+    "labels": ["plant", "herb", "food"]
+  },
+  {
+    "word": "beast",
+    "labels": ["animal", "concept"]
+  },
+  {
+    "word": "brain",
+    "labels": ["body part", "concept"]
+  },
+  {
+    "word": "brick",
+    "labels": ["object", "building material"]
+  },
+  {
+    "word": "brush",
+    "labels": ["object", "tool"]
+  },
+  {
+    "word": "camel",
+    "labels": ["animal", "desert"]
+  },
+  {
+    "word": "candy",
+    "labels": ["food", "sweet"]
+  },
+  {
+    "word": "coral",
+    "labels": ["organism", "ocean", "object"]
+  },
+  {
+    "word": "drama",
+    "labels": ["concept", "art", "performance"]
+  },
+  {
+    "word": "drink",
+    "labels": ["food", "beverage"]
+  },
+  {
+    "word": "forge",
+    "labels": ["place", "action", "tool"]
+  },
+  {
+    "word": "frost",
+    "labels": ["natural feature", "weather"]
+  },
+  {
+    "word": "giant",
+    "labels": ["concept", "myth", "person"]
+  },
+  {
+    "word": "grill",
+    "labels": ["object", "cooking", "food"]
+  },
+  {
+    "word": "habit",
+    "labels": ["concept", "behavior"]
+  },
+  {
+    "word": "human",
+    "labels": ["person", "being"]
+  },
+  {
+    "word": "jewel",
+    "labels": ["object", "decoration", "valuable"]
+  },
+  {
+    "word": "knife",
+    "labels": ["object", "tool", "weapon"]
+  },
+  {
+    "word": "light",
+    "labels": ["object", "natural phenomenon"]
+  },
+  {
+    "word": "maple",
+    "labels": ["plant", "tree"]
+  },
+  {
+    "word": "medal",
+    "labels": ["object", "award", "symbol"]
+  },
+  {
+    "word": "peach",
+    "labels": ["fruit", "food"]
+  },
+  {
+    "word": "place",
+    "labels": ["concept", "location"]
+  },
+  {
+    "word": "prism",
+    "labels": ["object", "shape", "science"]
+  },
+  {
+    "word": "rebel",
+    "labels": ["person", "concept", "action"]
+  },
+  {
+    "word": "raven",
+    "labels": ["animal", "bird"]
+  },
+  {
+    "word": "scout",
+    "labels": ["person", "role", "activity"]
+  },
+  {
+    "word": "smile",
+    "labels": ["concept", "emotion"]
+  },
+  {
+    "word": "whale",
+    "labels": ["animal", "ocean"]
+  },
+  {
+    "word": "world",
+    "labels": ["place", "planet", "concept"]
+  }
+]
