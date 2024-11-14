@@ -1,9 +1,37 @@
-<!-- activity_main.xml -->
-<androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/wordleGrid"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="5" xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"/> <!-- spanCount is the number of columns -->
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:windowSoftInputMode="adjustNothing"
+        android:padding="16dp">
+
+    <TextView
+            android:text="@string/wordle_title"
+            android:layout_width="match_parent"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"/>
+
+    <!-- Wordle Grid (RecyclerView) -->
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wordleGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="5"
+            android:layout_margin="16dp"/>
+
+    <!-- Reset Button -->
+    <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_game"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+</LinearLayout>
