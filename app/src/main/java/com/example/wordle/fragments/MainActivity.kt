@@ -32,11 +32,6 @@ class MainActivity : AppCompatActivity() {
                     showGameResultPopup("You Won!")
                 } else if (gameState == WordleState.GameState.GAME_LOST) {
                     showGameResultPopup("You lost!")
-                } else if (gameState == WordleState.GameState.GAME_RESET) {
-                    wordleState.reset()
-                    wordleState.chosenWord = loadWords(this).random()
-                    wordleState.gameState.value = WordleState.GameState.GAME_ON
-                    Log.d(WordleState.LOGGER_TAG, String.format("Chosen Word Reset= [%s]", wordleState.chosenWord!!.word))
                 }
             }
         }
@@ -56,10 +51,6 @@ class MainActivity : AppCompatActivity() {
     private fun showGameResultPopup(message: String) {
         val dialog = AlertDialog.Builder(this)
             .setTitle(message)
-            .setNegativeButton("Reset Game") { dialog, _ ->
-                resetGame()
-                dialog.dismiss()
-            }
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -69,7 +60,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun resetGame() {
         adapter.resetBoard()
+        wordleState.chosenWord = loadWords(this).random()
         wordleState.reset()
+        wordleState.gameState.value = WordleState.GameState.GAME_ON
         // Reset game logic, such as clearing the board or restarting the state
     }
 }

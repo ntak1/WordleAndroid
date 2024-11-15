@@ -34,7 +34,6 @@ class WordleState(private val sharedPreferences: SharedPreferences): ViewModel()
         chosenWord = null
         currentRow = 0
         currentWord = null
-        gameState.value = GameState.GAME_RESET
     }
 
     fun setLostGame() {
