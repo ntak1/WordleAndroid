@@ -15,7 +15,6 @@ class WordleState(private val sharedPreferences: SharedPreferences): ViewModel()
         const val LOGGER_TAG = "naomitkm_debug"
     }
     var chosenWord: Word? = null
-    var currentWord: Word? = null
     var gameState = MutableLiveData(GameState.GAME_ON)
 
     var currentRow: Int = 0
@@ -33,7 +32,6 @@ class WordleState(private val sharedPreferences: SharedPreferences): ViewModel()
     fun reset() {
         chosenWord = null
         currentRow = 0
-        currentWord = null
     }
 
     fun setLostGame() {

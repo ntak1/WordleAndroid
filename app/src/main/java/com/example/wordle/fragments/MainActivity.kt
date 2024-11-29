@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("WordleStats", MODE_PRIVATE)
         wordleState = WordleState(sharedPreferences)
         wordleState.chosenWord = loadWords(this).random()
-        Log.d(WordleState.LOGGER_TAG, String.format("Chosen Word= [%s]", wordleState.chosenWord!!.word))
         wordleState.gameState.observe(this) {
             gameState ->
             run {
@@ -46,6 +45,11 @@ class MainActivity : AppCompatActivity() {
         resetButton.setOnClickListener {
             resetGame()
         }
+        // Set up the showAnswer button click listener
+        val showAnswerButton = findViewById<Button>(R.id.showAnswer)
+        showAnswerButton.setOnClickListener {
+            showAnswer()
+        }
     }
 
     private fun showGameResultPopup(message: String) {
@@ -60,9 +64,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun resetGame() {
         adapter.resetBoard()
-        wordleState.chosenWord = loadWords(this).random()
         wordleState.reset()
+        wordleState.chosenWord = loadWords(this).random()
+        Log.d(WordleState.LOGGER_TAG, "chosenWord ${wordleState.chosenWord}")
         wordleState.gameState.value = WordleState.GameState.GAME_ON
         // Reset game logic, such as clearing the board or restarting the state
+    }
+
+    private fun showAnswer() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Answer")
+            .setMessage(wordleState.chosenWord?.word.toString())
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        dialog.show()
     }
 }

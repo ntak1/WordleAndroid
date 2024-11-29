@@ -39,4 +39,5 @@
     </string>
     <string name="reset_game">Reset Game</string>
     <string name="wordle_title">Naomi\'s Wordle</string>
+    <string name="show_answer">Show Answer</string>
 </resources>

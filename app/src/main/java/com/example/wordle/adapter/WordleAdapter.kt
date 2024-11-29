@@ -75,13 +75,6 @@ class WordleAdapter(private val cells: List<Cell>, private val wordleState: Word
 
                         if ((position + 1) % WordleState.WIDTH == 0) {
                             Log.d(WordleState.LOGGER_TAG, "reached end of line")
-                            val startPosition = position - WordleState.WIDTH + 1
-                            val wordLine = StringBuilder()
-                            for (i in startPosition..position) {
-                                wordLine.append(cells[i].letter.toString().trim())
-                            }
-                            Log.d(WordleState.LOGGER_TAG, String.format("wordLine %s", wordLine))
-                            wordleState.currentWord = Word(wordLine.toString(), listOf())
                         }
                         // Shift the focus to the next cell in the row
                         else if (position < cells.size - 1 && (position + 1) % WordleState.WIDTH != 0) {
@@ -109,23 +102,36 @@ class WordleAdapter(private val cells: List<Cell>, private val wordleState: Word
                     return@setOnKeyListener true // Consume the backspace event
                 }
             }
-            // Detect enter key in the end of the line
+            // Detect enter key
             else if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                // Color each letter of the word
+                // Extract the word typed so far
+                val startIndex = wordleState.currentRow * WordleState.WIDTH
+                var currRowWord = ""
+                for (j in (startIndex..<startIndex + WordleState.WIDTH)) {
+                    val currChar = getHolderCellByIndex(holder, j)?.letterView?.text
+                    if (currChar != null) {
+                        currRowWord += currChar
+                    }
+                }
+                Log.d(WordleState.LOGGER_TAG, "currWord: [$currRowWord]")
+                if (currRowWord.length < WordleState.WIDTH) {
+                    return@setOnKeyListener true
+                }
+
+                // Only color the word if the word is complete
                 val answerFrequencyMap = wordleState.chosenWord?.getWordFrequencyMap()
                 if (answerFrequencyMap != null) {
-                    val startIndex = wordleState.currentRow * WordleState.WIDTH
                     Log.d(WordleState.LOGGER_TAG, "[colorWord] startIndex $startIndex")
-                    Log.d(WordleState.LOGGER_TAG, "wordleState ${wordleState.chosenWord}, ${wordleState.currentWord}")
+                    Log.d(WordleState.LOGGER_TAG, "wordleState ${wordleState.chosenWord}, $currRowWord")
                     for ((j, i) in (startIndex..<startIndex + WordleState.WIDTH).withIndex()) {
-                        val currChar = wordleState.currentWord?.word?.get(j)
+                        val currChar = currRowWord[j]
                         val ansChar = wordleState.chosenWord?.word?.get(j)
-                        if (currChar != null && currChar == ansChar) {
+                        if (currChar == ansChar) {
                             getHolderCellByIndex(holder, i)?.letterView
                                 ?.setBackgroundColor(getCellColorFor(CellState.RIGHT_POSITION))
                             answerFrequencyMap[currChar] = answerFrequencyMap[currChar]!! -1
                         } else {
-                            if (currChar != null && answerFrequencyMap.containsKey(currChar) && answerFrequencyMap[currChar]!! > 0) {
+                            if (answerFrequencyMap.containsKey(currChar) && answerFrequencyMap[currChar]!! > 0) {
                                 getHolderCellByIndex(holder, i)?.letterView
                                     ?.setBackgroundColor(getCellColorFor(CellState.CONTAINS_WRONG_POSITION))
                                 answerFrequencyMap[currChar] = answerFrequencyMap[currChar]!! -1
@@ -138,7 +144,7 @@ class WordleAdapter(private val cells: List<Cell>, private val wordleState: Word
                 }
 
                 // Check if the rowWord matches the chosenWord
-                if (wordleState.chosenWord?.word == wordleState.currentWord?.word) {
+                if (currRowWord == wordleState.chosenWord?.word) {
                     Log.d(WordleState.LOGGER_TAG, "Match!!")
                     setEditable(holder, wordleState.currentRow, false)
                     wordleState.setGameWon()
